@@ -1,0 +1,27 @@
+{
+	"name": "grunt-starter",
+	"version": "1.0",
+	"description": "A series of Grunt plugins that can be helpful in WordPress development.",
+	"homepage": "https://github.com/thoronas/grunt-starter",
+	"license": "GPLv2",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thoronas/grunt-starter.git"
+	},
+	"dependencies": {
+			"grunt": "~0.4.1",
+			"grunt-autoprefixer": "^0.7.3",
+			"grunt-contrib-cssmin": "^0.10.0",
+			"grunt-csscomb": ">=2.0.1",
+			"grunt-contrib-sass": "^0.8.1",
+			"grunt-contrib-watch": "^0.6.1",
+			"grunt-contrib-concat": "^0.5.0",
+			// "grunt-cssjanus": "~0.2.2",
+			// "grunt-contrib-jshint": "^0.9.2",
+			// "grunt-notify": "^0.3.1",
+			// "grunt-phplint": "0.0.5",
+			// "grunt-search": "^0.1.6",
+			// "grunt-shell": "^0.6.4",
+			// "grunt-wp-i18n": "~0.4.6"
+		}
+	}
