@@ -20,6 +20,13 @@ module.exports = function(grunt){
 				dest: 'public/css/style.css'
 			}
         },
+		csscomb: {
+			style: {
+				files: {
+					'public/css/style.css': ['public/css/style.css']
+				}
+			}
+		},
 		watch: {
 			// scripts: {
 			// 	files: ['source/js/*.js'],
@@ -31,7 +38,7 @@ module.exports = function(grunt){
 			// },
 			css: {
 				files: ['public/css/**/*.scss'],
-				tasks: ['sass','autoprefixer'],
+				tasks: ['sass','autoprefixer', 'autoprefixer', 'csscomb'],
 			}
 		}		
     });
@@ -41,7 +48,8 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-csscomb');
 
-    grunt.registerTask('default', ['sass', 'watch', 'autoprefixer']);
+    grunt.registerTask('default', ['sass', 'watch', 'autoprefixer', 'csscomb']);
 
 };
