@@ -6,9 +6,9 @@ module.exports = function(grunt){
 
 		sass: {
 			dist: {
-				options: {
-					style: 'compressed'
-				},
+				// options: {
+				// 	style: 'compressed'
+				// },
 				files: {
 					'public/css/style.css': 'public/css/style.scss',
 				}
@@ -38,7 +38,7 @@ module.exports = function(grunt){
 			// },
 			css: {
 				files: ['public/css/**/*.scss'],
-				tasks: ['sass','autoprefixer', 'autoprefixer', 'csscomb'],
+				tasks: ['sass', 'csscomb', 'autoprefixer'],
 			}
 		}		
     });
@@ -50,6 +50,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-csscomb');
 
-    grunt.registerTask('default', ['sass', 'watch', 'autoprefixer', 'csscomb']);
+    grunt.registerTask('default', ['sass', 'watch', 'csscomb', 'autoprefixer']);
 
 };
