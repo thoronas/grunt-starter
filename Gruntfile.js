@@ -27,6 +27,7 @@ module.exports = function(grunt){
 				}
 			}
 		},
+
 		watch: {
 			// scripts: {
 			// 	files: ['source/js/*.js'],
