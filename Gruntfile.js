@@ -35,19 +35,42 @@ module.exports = function(grunt){
 			},
 				target: {
 				files: {
-					'public/css/style.min.css': ['public/css/style.css']
+					'public/css/style.css': ['public/css/style.css']
 				}
 			}
 		},
+
+
+		concat: {
+			options: {
+				separator: ';',
+			},
+				dist: {
+				src: [
+					'source/js/script1.js',
+					'source/js/script2.js',
+				],
+				dest: 'source/js/main-script.js',
+			},
+		},
+		uglify: {
+			my_target: {
+				files: {
+					'source/js/main-script.js': ['source/js/main-script.js']
+				}
+			}
+		},
+
+
 		watch: {
-			// scripts: {
-			// 	files: ['source/js/*.js'],
-			// 	tasks: ['concat', 'uglify'],
-			// 	options: {
-			// 		livereload: true,
-			// 		spawn: false
-			// 	}
-			// },
+			scripts: {
+				files: ['source/js/*.js'],
+				tasks: ['concat', 'uglify'],
+				options: {
+					livereload: true,
+					spawn: false
+				}
+			},
 			css: {
 				files: ['public/css/**/*.scss'],
 				tasks: ['sass', 'csscomb', 'autoprefixer','cssmin','notify'],
@@ -71,7 +94,9 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-csscomb');
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['sass', 'watch', 'csscomb', 'autoprefixer','cssmin','notify']);
+    grunt.registerTask('default', ['sass', 'watch', 'csscomb', 'autoprefixer','cssmin','notify','concat','uglify']);
 
 };
