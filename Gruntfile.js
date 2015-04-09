@@ -28,6 +28,17 @@ module.exports = function(grunt){
 			}
 		},
 
+		cssmin: {
+			options: {
+				shorthandCompacting: false,
+				roundingPrecision: -1
+			},
+				target: {
+				files: {
+					'public/css/style.min.css': ['public/css/style.css']
+				}
+			}
+		},
 		watch: {
 			// scripts: {
 			// 	files: ['source/js/*.js'],
@@ -39,9 +50,17 @@ module.exports = function(grunt){
 			// },
 			css: {
 				files: ['public/css/**/*.scss'],
-				tasks: ['sass', 'csscomb', 'autoprefixer'],
+				tasks: ['sass', 'csscomb', 'autoprefixer','cssmin','notify'],
 			}
-		}		
+		},
+		notify: {
+			watch: {
+				options: {
+					title: 'Complie Complete',  // optional 
+					message: 'SASS finished running', //required 
+				}
+			}
+		}
     });
 
 
@@ -50,7 +69,9 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-csscomb');
+	grunt.loadNpmTasks('grunt-notify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask('default', ['sass', 'watch', 'csscomb', 'autoprefixer']);
+    grunt.registerTask('default', ['sass', 'watch', 'csscomb', 'autoprefixer','cssmin','notify']);
 
 };
